@@ -2,44 +2,72 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Untuk Nalya ❤️</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 95%;
+    max-width: 500px;
     text-align: center;
+    margin-top: 80px;
 }
 
 /* MENU */
 .menu {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    padding: 15px;
 }
 
 .menu button {
-    padding: 10px 15px;
+    padding: 12px 18px;
     border: none;
     border-radius: 20px;
     background: white;
     color: #ff4d6d;
     cursor: pointer;
+    font-size: 14px;
 }
 
 /* PAGE */
-.page { display: none; padding: 30px; }
-.active { display: block; }
+.page {
+    display: none;
+    margin-top: 30px;
+}
+
+.active {
+    display: block;
+}
+
+/* TEXT */
+h2 {
+    font-size: 26px;
+}
+
+p {
+    font-size: 18px;
+}
 
 /* BUTTON */
 .next-btn {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 20px;
     border: none;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -58,59 +86,57 @@ body {
 /* GAME */
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 70px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 80px);
+    gap: 12px;
     justify-content: center;
     margin-top: 20px;
 }
 
 .card {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background: white;
     color: #ff4d6d;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 28px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-.open { background: pink; }
+.open {
+    background: pink;
+}
 
 #msg {
     margin-top: 15px;
     font-size: 20px;
 }
 
-/* BONEKA BESAR */
+/* BONEKA */
 .teddy {
     position: fixed;
     font-size: 80px;
 }
 
-/* boneka 1 (kanan bawah - goyang) */
 .t1 {
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     animation: goyang 2s infinite alternate;
 }
 
-/* boneka 2 (kiri bawah - lompat) */
 .t2 {
-    bottom: 20px;
-    left: 20px;
+    bottom: 15px;
+    left: 15px;
     animation: lompat 1s infinite;
 }
 
-/* boneka 3 (jalan keliling) */
 .t3 {
     bottom: 120px;
     animation: jalan 10s linear infinite;
 }
 
-/* animasi */
 @keyframes goyang {
     0% { transform: rotate(-10deg); }
     100% { transform: rotate(10deg); }
@@ -129,51 +155,54 @@ body {
 /* BUBBLE */
 .bubble {
     position: fixed;
-    bottom: 110px;
-    right: 20px;
+    bottom: 100px;
+    right: 15px;
     background: white;
     color: #ff4d6d;
     padding: 10px;
     border-radius: 10px;
-    font-size: 16px;
-    animation: goyang 2s infinite alternate;
+    font-size: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- MENU -->
-<div class="menu">
-    <button onclick="showPage('p1')">💌 Ungkapan</button>
-    <button onclick="showPage('p2')">🥺 Pesan</button>
-    <button onclick="showPage('p3')">🎮 Game</button>
-    <button onclick="showPage('p4')">💖 Akhir</button>
-</div>
+<div class="container">
 
-<!-- UNGKAPAN -->
-<div id="p1" class="page active">
-    <h2 id="t1">Klik ya 😊</h2>
-    <button class="next-btn" onclick="nextKata(1)">Next ❤️</button>
-</div>
+    <!-- MENU -->
+    <div class="menu">
+        <button onclick="showPage('p1')">💌 Ungkapan</button>
+        <button onclick="showPage('p2')">🥺 Pesan</button>
+        <button onclick="showPage('p3')">🎮 Game</button>
+        <button onclick="showPage('p4')">💖 Akhir</button>
+    </div>
 
-<!-- PESAN -->
-<div id="p2" class="page">
-    <h2 id="t2">Klik ya 😊</h2>
-    <button class="next-btn" onclick="nextKata(2)">Next ❤️</button>
-</div>
+    <!-- UNGKAPAN -->
+    <div id="p1" class="page active">
+        <h2 id="t1">Klik ya 😊</h2>
+        <button class="next-btn" onclick="nextKata(1)">Next ❤️</button>
+    </div>
 
-<!-- GAME -->
-<div id="p3" class="page">
-    <h2>Cari Hatiku ❤️</h2>
-    <div class="grid" id="grid"></div>
-    <div id="msg"></div>
-</div>
+    <!-- PESAN -->
+    <div id="p2" class="page">
+        <h2 id="t2">Klik ya 😊</h2>
+        <button class="next-btn" onclick="nextKata(2)">Next ❤️</button>
+    </div>
 
-<!-- AKHIR -->
-<div id="p4" class="page">
-    <h2>I ❤️ YOU</h2>
-    <p>Info balik kalo suka...wkwkwkwk 😄❤️</p>
+    <!-- GAME -->
+    <div id="p3" class="page">
+        <h2>Main game cari hati yukk ❤️</h2>
+        <div class="grid" id="grid"></div>
+        <div id="msg"></div>
+    </div>
+
+    <!-- AKHIR -->
+    <div id="p4" class="page">
+        <h2>I ❤️ YOU</h2>
+        <p>Info balik kalau suka ya 😄❤️</p>
+    </div>
+
 </div>
 
 <!-- BONEKA -->
@@ -195,23 +224,23 @@ let data = {
         "Beta mau jujur sesuatu...",
         "Beta nyaman deng se ❤️",
         "Beta bahagia kalau chat deng se 😍",
-        "Maaf ee kalau beta beberapa hari ini mengganggu 🥺",
-        "Kedengarannya lucu yahh, karena baru kenal 😄",
-        "Tapi mau bagaimana lagi...??",
-        "Namanya juga perasaan, iya kan? 😊"
+        "Maaf kalau beta mengganggu 🥺",
+        "Memang kedengarannya lucu, karna baru kenal langsung suka 😄",
+        "yahhh Namanya juga perasaan...",
+        "Iya kan? 😊"
     ],
-
     2: [
-        "Semangat terus ee, jang gampang menyerah 💪",
-        "Hidup ini keras, tapi se lebih kuat dari itu ❤️",
-        "Kalau cape, istirahat... jang berhenti 🥺",
-        "Percaya diri ee, se itu luar biasa ✨",
-        "Pelan-pelan saja, yang penting tetap jalan 😊",
-        "Beta yakin, suatu hari se pasti berhasil 💖",
-        "Jang dengar omongan orang yang jatuhkan se 😤",
-        "Ingat, se berharga dan berarti ❤️"
+        "Semangat terus ee 💪",
+        "Se kuat ❤️",
+        "Istirahat boleh, menyerah jangan 🥺",
+        "Se luar biasa ✨",
+        "Pelan-pelan saja 😊",
+        "Pasti berhasil 💖",
+        "Jangan dengar orang yang jatuhkan se 😤",
+        "Se berharga ❤️"
     ]
 };
+
 let index = {1:0,2:0};
 
 function nextKata(page) {
@@ -219,94 +248,77 @@ function nextKata(page) {
     let arr = data[page];
 
     if (index[page] < arr.length) {
-        text.innerHTML = arr[index[page]];
-        index[page]++;
+        text.innerHTML = arr[index[page]++];
     } else {
         text.innerHTML = "❤️";
     }
 }
 
 /* HATI */
-function buatHati() {
+setInterval(()=>{
     let h = document.createElement("div");
     h.innerHTML = "❤️";
-    h.classList.add("heart");
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.fontSize = (Math.random() * 20 + 10) + "px";
+    h.className = "heart";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = (Math.random()*25+15)+"px";
     document.body.appendChild(h);
-
-    setTimeout(() => h.remove(), 5000);
-}
-setInterval(buatHati, 300);
+    setTimeout(()=>h.remove(),5000);
+},300);
 
 /* GAME */
-let items = ["❤️","❤️","😍","😍","💖","💖","🥰","🥰"];
-items.sort(()=>Math.random()-0.5);
-
-let first = null;
-let second = null;
-let lock = false;
-let matched = 0;
-
-let pesanGame = [
-    "Se manis sekali ee 😍",
-    "Beta makin suka deng se ❤️",
-    "Se itu spesial sekali 💖",
-    "Jang jauh-jauh dari beta ee 🥺"
-];
-
+let items = ["❤️","❤️","😍","😍","💖","💖","🥰","🥰"].sort(()=>Math.random()-0.5);
 let grid = document.getElementById("grid");
 
-items.forEach(item=>{
-    let card = document.createElement("div");
-    card.classList.add("card");
-    card.innerHTML = "?";
+let first=null, second=null, lock=false, matched=0;
 
-    card.onclick = ()=>{
+items.forEach(item=>{
+    let card=document.createElement("div");
+    card.className="card";
+    card.innerHTML="?";
+
+    card.onclick=()=>{
         if(lock || card.classList.contains("open")) return;
 
-        card.innerHTML = item;
+        card.innerHTML=item;
         card.classList.add("open");
 
         if(!first){
-            first = card;
-        } else {
-            second = card;
-            lock = true;
+            first=card;
+        }else{
+            second=card;
+            lock=true;
 
-            if(first.innerHTML === second.innerHTML){
+            if(first.innerHTML===second.innerHTML){
                 matched++;
                 showMsg();
+                first=second=null;
+                lock=false;
 
-                first = null;
-                second = null;
-                lock = false;
-
-                if(matched === 4){
-                    document.getElementById("msg").innerHTML = "💖Selamat Kk Nona.... Se su dapa bt pung hati ❤️";
+                if(matched===4){
+                    msg.innerHTML="💖 paleng curang ee...pncuri bt hati layyy..wkwkwkwk ❤️";
                 }
-
-            } else {
+            }else{
                 setTimeout(()=>{
-                    first.innerHTML = "?";
-                    second.innerHTML = "?";
+                    first.innerHTML=second.innerHTML="?";
                     first.classList.remove("open");
                     second.classList.remove("open");
-
-                    first = null;
-                    second = null;
-                    lock = false;
+                    first=second=null;
+                    lock=false;
                 },1000);
             }
         }
     };
-
     grid.appendChild(card);
 });
 
 function showMsg(){
-    let m = pesanGame[Math.floor(Math.random()*pesanGame.length)];
-    document.getElementById("msg").innerHTML = m;
+    let pesan=[
+        "Se manis 😍",
+        "Beta suka ❤️",
+        "Se spesial 💖",
+        "lopyuuuuu🥺"
+    ];
+    msg.innerHTML=pesan[Math.floor(Math.random()*pesan.length)];
 }
 </script>
 
